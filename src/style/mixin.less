@@ -1,0 +1,18 @@
+// variable
+@bg: #f0f0f0;
+@navHeight: 50px;
+
+// mixin
+.fixed () {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  width: 100%;
+  height: @navHeight;
+  line-height: @navHeight;
+}
+.activeBg () {
+  &:active {
+    background-color: #f0f0f0;
+  }
+}
