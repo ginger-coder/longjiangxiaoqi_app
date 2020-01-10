@@ -1,7 +1,13 @@
 <template>
   <footer class="footer">
-    <ul class="">
-      <router-link tag="li" v-for="menu in menus" :key="menu.text" :to="menu.path" :class="{selected: $route.path.match(menu.path)}">{{ menu.text }}</router-link>  
+    <ul class>
+      <router-link
+        tag="li"
+        v-for="menu in menus"
+        :key="menu.text"
+        :to="menu.path"
+        :class="{selected: $route.path.match(menu.path)}"
+      >{{ menu.text }}</router-link>
     </ul>
   </footer>
 </template>
@@ -10,25 +16,37 @@
 export default {
   data() {
     return {
-      title: '拉勾网',
+      title: "龙江校企人才网",
       selected: 0,
-      menus: [{
-        path: '/home',
-        text: '职位'
-      },{
-        path: '/search',
-        text: '搜索'
-      },{
-        path: '/user',
-        text: '我的'
-      }]
-    }
+      menus: [
+        {
+          path: "/home",
+          text: "职位"
+        },
+        {
+          path: "/companylist",
+          text: "企业"
+        },
+        {
+          path: "/school",
+          text: "校院"
+        },
+        {
+          path: "/organization",
+          text: "机构"
+        },
+        {
+          path: "/user",
+          text: "我的"
+        }
+      ]
+    };
   }
-}
+};
 </script>
 
 <style lang="less">
-@import '../style/mixin';
+@import "../style/mixin";
 
 .footer {
   .fixed;

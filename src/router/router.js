@@ -2,9 +2,15 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@/page/home'
 import search from '@/page/search'
+import school from '@/page/school'
+import companylist from '@/page/companylist'
+import organization from '@/page/organization'
 import user from '@/page/user'
 import jobsDetails from '@/page/jobsDetails'
-import login from '@/page/login'
+import firmDetails from '@/page/firmDetail'
+import cpDetails from '@/page/cpDetail'
+import login from '@/page/login';
+import register from '@/page/register';
 
 Vue.use(Router)
 
@@ -20,9 +26,19 @@ export default new Router({
       component: home
     },
     {
-      path: '/search',
-      name: 'search',
-      component: search
+      path: '/school',
+      name: 'school',
+      component: school
+    },
+    {
+      path: '/companylist',
+      name: 'companylist',
+      component: companylist
+    },
+    {
+      path: '/organization',
+      name: 'organization',
+      component: organization
     },
     {
       path: '/user',
@@ -34,9 +50,22 @@ export default new Router({
       component: jobsDetails
     },
     {
+      path: '/firmdetail',
+      component: firmDetails
+    },
+    {
+      path: '/cpdetail',
+      component: cpDetails
+    },
+    {
       path: '/login',
       name: 'login',
       component: login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: register
     },
   ]
 })

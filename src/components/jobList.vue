@@ -1,37 +1,49 @@
 <template>
   <ul v-if="list.length">
-    <router-link tag="li" :to="{path: 'jobs', query:{id: item.positionId}}" v-for="item in list" :key="item.positionId" class="list-item">
-      <img class="item-logo" :src="'//www.lgstatic.com/' + item.companyLogo">
+    <router-link
+      tag="li"
+      :to="{path: 'jobs', query:{id: item.id}}"
+      v-for="item in list"
+      :key="item.id"
+      class="list-item"
+    >
+      <img class="item-logo" :src="item.logo" />
       <div class="item-desc">
-        <h3 class="item-title">{{ item.companyName }}</h3>
+        <h3 class="item-title">{{ item.name }}</h3>
         <p class="item-info">
-          <span class="item-pos">{{ item.positionName }}【{{item.city}}】</span>
-          <span class="item-salary">{{ item.salary }}</span>
+          <span class="item-pos">{{ item.province }}【{{item.area}}】</span>
+          <span class="item-salary">{{ item.publishedTime }}</span>
         </p>
         <p class="item-time">{{ item.createTime }}</p>
       </div>
     </router-link>
-    <li class="list-more" @click="loadMore()">加载更多</li>
+    <!-- <li class="list-more" @click="loadMore()">加载更多</li> -->
   </ul>
 </template>
 
 <script>
 export default {
-  name: 'jobList',
+  name: "jobList",
   data: () => ({
     pageNo: 1
   }),
-  props: ['list'],
+  props: ["list"],
+  mounted(){
+    this.dataList();
+  },
   methods: {
-    loadMore: function() {
-      this.$emit('loadMore', ++this.pageNo);
+    // loadMore: function() {
+    //   this.$emit("loadMore", ++this.pageNo);
+    // },
+    dataList() {
+      // console.log(this.list);
     }
   }
-}
+};
 </script>
 
 <style lang="less">
-@import '../style/mixin';
+@import "../style/mixin";
 
 .list-item {
   .activeBg;

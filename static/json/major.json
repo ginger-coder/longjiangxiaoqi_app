@@ -1,0 +1,36 @@
+[
+	{
+		"id": "1",
+		"parentId": "0",
+		"name": "英语",
+		"chdren": [
+			{
+				"id": "3",
+				"parentId": "1",
+				"name": "英语一级"
+			},
+			{
+				"id": "4",
+				"parentId": "1",
+				"name": "英语二级"
+			},
+			{
+				"id": "5",
+				"parentId": "1",
+				"name": "英语三级"
+			}
+		]
+	},
+	{
+		"id": "2",
+		"parentId": "0",
+		"name": "数学",
+		"chdren": [
+			{
+				"id": "6",
+				"parentId": "2",
+				"name": "托福"
+			}
+		]
+	}
+]
