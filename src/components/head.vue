@@ -1,6 +1,7 @@
 <template>
   <header class="header">
-    <span class="go-back" v-show="goBack" @click="$router.go(-1)"></span>
+    <!-- <span class="go-back" v-show="goBack" @click="$router.go(-1)"></span> -->
+    <van-icon class="go-back" size="26" name="arrow-left" @click="$router.go(-1)" />
     <span>{{ title }}</span>
   </header>
 </template>
@@ -8,7 +9,7 @@
 <script>
 export default {
   props: {
-    'title': {default: '拉勾网'},
+    'title': {default: '龙江校企人才网'},
     'goBack': String
   }
 }
@@ -27,11 +28,12 @@ export default {
 }
 .go-back {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 50px;
-  height: 100%;
-  background: url(../images/icon2.png) no-repeat 20px -31px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0px;
+  padding: 0 10px;
+  // width: 50px;
+  // height: 100%;
   //background-size: 350px 350px;
 }
 </style>

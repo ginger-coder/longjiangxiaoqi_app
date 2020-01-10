@@ -5,7 +5,9 @@
       <div class="infoplank">
         <div class="info-title">
           <h2>{{zhuanyelInfo.name}}</h2>
-          <van-icon color="#ECD261" name="star" @click="addCollect" />
+          
+          <van-icon v-if="schoolInfo.isCollect == 1" size="24" color="#ECD261" name="star" @click="addCollect" />
+          <van-icon v-if="schoolInfo.isCollect == 0" size="24" color="#ccc" name="star" @click="addCollect" />
         </div>
         <div class="info-text">
           <p>{{zhuanyelInfo.description}}</p>
@@ -56,7 +58,7 @@ export default {
       // api.majorDetail({ id }).then(r => {
       //   if(r.code == 1){
       //     this.zhuanyelInfo = r.data;
-      api.jigouDetail({ id }).then(res => {
+      api.orgDetail({ id }).then(res => {
         if (res.code != 0) {
           this.zhuanyelInfo = {
             name: res.data.name,
@@ -70,17 +72,18 @@ export default {
       // })
     },
     addCollect() {
-      let { companyId } = this.schoolInfo;
+      let { id } = this.schoolInfo;
       api
-        .positionADD({
-          CompanyId: companyId
+        .collectToggle({
+          companyId: id
         })
         .then(res => {
-          if (res.code == 1) {
-            this.$toast("收藏成功");
+          if (res.data && res.data.indexOf('取消') >  -1) {
+            this.$toast(res.data);
           } else {
-            this.$toast(res.msg);
+            this.$toast('收藏成功');
           }
+          this._getInfoData();
         });
     }
   },

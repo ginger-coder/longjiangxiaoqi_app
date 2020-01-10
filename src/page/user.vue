@@ -8,22 +8,37 @@
         </div>
         <div class="haslogin center" v-else>
           <div class="headcon">
-            <img class="headpic" :src="headImg" />
+            <img class="headpic" :src="(headImg == null || headImg == '')? defaultImg : headImg "/>
           </div>
           <div class="name">{{userName}}</div>
         </div>
       </div>
       <div class="buttons">
-        <a class="button deliver" href="/user/deliverlist.html">
-          <span>投递</span>
-        </a>
-        <a class="button interview" href="/minterview/interviewlist.html">面试</a>
-        <a class="button invitation" href="/minvite/invitation.html">
-          <span>邀约</span>
-        </a>
-        <a class="button collect" href="/user/collectlist.html">收藏</a>
+        <!-- :to="{path: 'jobs', query:{id: item.id}}" -->
+        <router-link to="/delivery" class="button deliver">
+          <span>职位投递</span>
+        </router-link>
+        <!-- <a class="button deliver" href="/user/deliverlist.html">
+          
+        </a>-->
+        <router-link to="/myorigin" class="button interview">
+          <span>报名机构</span>
+        </router-link>
+        <router-link to="/myschool" class="button invitation">
+          <span>我的院校</span>
+        </router-link>
+        <router-link to="/collect" class="button collect">
+          <span>收藏</span>
+        </router-link>
+        <!-- <a class="" href="/user/collectlist.html">收藏</a> -->
       </div>
-      <a v-if="isLogin" class="logout" @click="outLogin" href="javascript:;" style="display: block;">退出登录</a>
+      <a
+        v-if="isLogin"
+        class="logout"
+        @click="outLogin"
+        href="javascript:;"
+        style="display: block;"
+      >退出登录</a>
     </div>
     <foot-nav></foot-nav>
   </div>
@@ -33,13 +48,14 @@
 import headTop from "../components/head";
 import footNav from "../components/foot";
 import api from "@/api/index.js";
-
+import hd from '@/assets/default_head.png';
 export default {
   data() {
     return {
       headImg: "",
       userName: "",
-      isLogin: false
+      isLogin: false,
+      defaultImg:hd,
     };
   },
   components: { headTop, footNav },

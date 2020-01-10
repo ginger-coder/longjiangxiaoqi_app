@@ -2,31 +2,28 @@
   <ul v-if="list.length">
     <router-link
       tag="li"
-      :to="{path: 'jobs', query:{id: item.id}}"
+      :to="{path: 'jobs', query:{id: item.recruitId}}"
       v-for="item in list"
       :key="item.id"
       class="list-item"
     >
       <img class="item-logo" :src="item.logo" />
       <div class="item-desc">
-        <h3 class="item-title">{{ item.name }}</h3>
+        <div class="item-top">
+          <h3 class="item-title">{{ item.candidateName }}</h3>
+          <p class="time">{{ item.createdTime }}</p>
+        </div>
         <p class="item-info">
-          <span style="display:none" class="item-pos">{{ item.province }}【{{item.area}}】</span>
-          <span>{{item.moneyMin}} -{{item.moneyMax}} k</span>
-          <span class="eduName">{{item.eduName}}</span>
-          <span>{{ item.workExpName }}年</span>
-          <span class="item-salary">{{ item.publishedTime }}</span>
+          <span class="item-pos">{{ item.recruitName }}</span>
         </p>
-        <p class="item-time">{{ item.province }}【{{item.area}}】</p>
       </div>
     </router-link>
-    <!-- <li class="list-more" @click="loadMore()">加载更多</li> -->
   </ul>
 </template>
 
 <script>
 export default {
-  name: "jobList",
+  name: "delivery-list",
   data: () => ({
     pageNo: 1
   }),
@@ -64,6 +61,16 @@ export default {
   height: 62px;
   color: #333;
 }
+.item-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .time{
+    text-align: right;
+    color: #999;
+    font-size:1rem;
+  }
+}
 .item-title {
   font-size: 1.4rem;
   font-weight: bold;
@@ -80,9 +87,10 @@ export default {
   line-height: 15px;
 }
 .item-pos {
+  margin-top: 0.5rem;
+  color: #666;
   font-size: 1.1rem;
-  float: left;
-  width: 60%;
+  width: 80%;
   display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -105,9 +113,5 @@ export default {
   &:active {
     background-color: #f0f0f0;
   }
-}
-.eduName{
-  margin-left:1rem;
-
 }
 </style>

@@ -7,16 +7,19 @@ let instance = axios.create({
   // timeout: 50000,
 });
 
-let accessToken = localStorage.getItem('accessToken');
-if (accessToken != null && accessToken != 'null') {
-  instance.defaults.headers.common['Authorization'] = 'Bearer ' + accessToken;
-}
-
+// let accessToken = localStorage.getItem('accessToken');
+// if (accessToken != null && accessToken != 'null') {
+//   instance.defaults.headers.common['Authorization'] = 'Bearer ' + accessToken;
+// }
 
 
 // 添加请求拦截器
 instance.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
+    let token = localStorage.getItem('accessToken')
+    if (token) {
+      config.headers['Authorization'] = 'Bearer ' + token;
+    }
   return config;
 }, function (error) {
   // 对请求错误做些什么

@@ -82,11 +82,12 @@ export default {
       // })
     },
     gobaoming() {
-      let { id, type } = this.schoolInfo;
+      let { id, type,schoolID} = this.schoolInfo;
       api
         .baoming({
-          CompanyId: id,
-          Type: type
+          CompanyId: schoolID,
+          Type: type,
+          RecruitId:id
         })
         .then(res => {
           console.log(res);

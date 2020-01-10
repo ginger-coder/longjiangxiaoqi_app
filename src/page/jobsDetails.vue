@@ -77,10 +77,22 @@
           <dt>联系电话：</dt>
           <dd>{{schoolInfo.phone}}</dd>
         </dl>
+        <dl>
+          <dt>薪酬：</dt>
+          <dd>{{schoolInfo.moneyMin}} -{{schoolInfo.moneyMax}} k</dd>
+        </dl>
+         <dl>
+          <dt>学历要求：</dt>
+          <dd>{{schoolInfo.eduName}}</dd>
+        </dl>
+        <dl>
+          <dt>工作经验：</dt>
+          <dd>{{ schoolInfo.workExpName }}年</dd>
+        </dl>
       </div>
       <div class="funplank">
         <h3>报名</h3>
-        <img :src="schoolInfo.logo" alt />
+        <div class="imgs"><img :src="schoolInfo.logo" alt /></div>
         <!-- <p>{{schoolInfo.name}}</p> -->
         <van-button type="primary" @click="gobaoming" size="large">投个简历</van-button>
       </div>
@@ -177,6 +189,17 @@ export default {
 </script>
 
 <style lang="">
+
+.imgs {
+  display:flex;
+  justify-content:center;
+}
+.imgs img {
+  width:130px;
+  height:130px;
+}
+
+
 .info-title {
   height: 48px;
   line-height: 48px;
@@ -203,7 +226,7 @@ export default {
   white-space: pre-wrap;
 }
 .contactplank dl {
-  padding: 5px 15px;
+  padding: 2px 15px ! important;
 }
 .contactplank dl dt,
 .contactplank dl dd {
@@ -664,6 +687,7 @@ export default {
 #content .positioneval .list-item + .list-item {
   border-top: 1px solid #e8e8e8;
 }
+
 
 #content .positioneval .eval-all {
   display: block;

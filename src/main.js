@@ -7,6 +7,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router/router'
 import './config/rem'
+import 'vant/lib/index.css'
 
 Vue.config.productionTip = true
 

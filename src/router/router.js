@@ -8,9 +8,16 @@ import organization from '@/page/organization'
 import user from '@/page/user'
 import jobsDetails from '@/page/jobsDetails'
 import firmDetails from '@/page/firmDetail'
+import schoolDetail from '@/page/schoolDetail'
 import cpDetails from '@/page/cpDetail'
 import login from '@/page/login';
-import register from '@/page/register';
+import register from '@/page/register'
+import Delivery from '@/page/delivery'
+import myschool from '@/page/myschool'
+import myorigin from '@/page/myorigin'
+import Collect from '@/page/collect'
+
+
 
 Vue.use(Router)
 
@@ -58,6 +65,10 @@ export default new Router({
       component: cpDetails
     },
     {
+      path: '/schooldetail',
+      component: schoolDetail
+    },
+    {
       path: '/login',
       name: 'login',
       component: login
@@ -67,5 +78,25 @@ export default new Router({
       name: 'register',
       component: register
     },
+    {
+      path: '/delivery',
+      name: 'delivery',
+      component: Delivery
+    },
+    {
+      path: '/myschool',
+      name: 'myschool',
+      component: myschool
+    },
+    {
+      path: '/myorigin',
+      name: 'myorigin',
+      component: myorigin
+    },
+    {
+      path: '/collect',
+      name: 'collect',
+      component: Collect
+    }
   ]
 })

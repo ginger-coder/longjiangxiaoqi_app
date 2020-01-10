@@ -30,7 +30,7 @@
       >
         <img :src="school.logo || ''" alt class="schoolLogo" />
         <h1 class="paddingleft">{{school.name}}</h1>
-        <span class="paddingleft">学校名称:{{school.schoolName}}</span>
+        <span class="paddingleft">{{school.schoolName}}</span>
         <!-- <p class="description" :title="school.description">简介:{{school.description}}</p> -->
       </span>
     </div>
@@ -220,7 +220,7 @@ export default {
     },
     goDetail(id, schoolID) {
       this.$router.push(
-        `/firmdetail?id=${id}&schoolId=${schoolID}&name=${"yxzs"}`
+        `/schooldetail?id=${id}&schoolId=${schoolID}&name=${"yxzs"}`
       );
     }
   },
